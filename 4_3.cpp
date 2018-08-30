@@ -37,9 +37,19 @@ void Equation :: solve() {
 			cout << fixed << setprecision(2) << -(_b / 2*_a) << endl;	
 		}
 		else if (delta > st) {
+			
+			double a1, a2, t;
+			a1 = ((-_b - sqrt(delta)) / 2*_a);
+			a2 = ((-_b + sqrt(delta)) / 2*_a);
+			if (a1 > a2) {
+				t = a1;
+				a1 = a2;
+				a2 = t;
+			}
+			
 			cout << 1 << endl;
-			cout << fixed << setprecision(2) << ((-_b - sqrt(delta)) / 2*_a) << " ";
-			cout << fixed << setprecision(2) << ((-_b + sqrt(delta)) / 2*_a) << endl;
+			cout << fixed << setprecision(2) << a1 << " ";
+			cout << fixed << setprecision(2) << a2 << endl;
 		}
 		else {
 			cout << 3 << endl;
