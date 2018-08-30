@@ -9,20 +9,20 @@ class Solution {
 
 int Solution :: divide(int dividend, int divisor) {
 	
-	bool neg = false;
+	bool neg1 = false, neg2 = false;
 	int count = 0;
 	if (divisor == 0) {
-		return INT_MAX;
+		return 2147483647;
 	}
 	
 	if (dividend < 0) {
 		dividend = - dividend;
-		neg = true;
+		neg1 = true;
 	}
 	
-	else if (divisor < 0) {
+	if (divisor < 0) {
 		divisor = - divisor;
-		neg = true;
+		neg2 = true;
 	}
 	
 	while (dividend - divisor >= 0) {
@@ -30,7 +30,8 @@ int Solution :: divide(int dividend, int divisor) {
 		dividend -= divisor;
 	}
 	
-	if (neg) return -count;
+	if (neg1 && neg2) return count;
+	else if (neg1 || neg2) return -count;
 	else return count;
 	
 }
@@ -39,7 +40,7 @@ int main() {
 	Solution s;
 	int dividend, divisor;
 	cin >> dividend >> divisor;
-	cout << s.divide(dividend,divisor);
+	cout << s.divide(dividend,divisor) << endl;
 	
 	return 0;
 }
