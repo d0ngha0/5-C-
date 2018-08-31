@@ -7,8 +7,8 @@ class express {
 		long long ex_pow(long long a, long long n);
 }; 
 
-long long express :: ex_pow (long long a, long long n) { //Ϊʲôֻ�ĵݹ麯���ķ���ֵ�����ԣ� 
-														// ��Ҫ�������йر��������Ͷ��ĳ� long long 
+long long express :: ex_pow (long long a, long long n) { //为什么只改递归函数的返回值不可以， 
+							// 而要将所有有关变量的类型都改成 long long 
 	if (n == 0) return 1;
 	
 	if (n % 2 == 1) {
